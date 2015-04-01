@@ -64,6 +64,12 @@ vec3 blendColorBurn(vec3 a, vec3 b)
 	return vec3(fColorBurn(a.r, b.r), fColorBurn(a.g, b.g), fColorBurn(a.b, b.b));
 }
 
+////////// LINEAR BURN /////////
+vec3 blendLinearBurn(vec3 a, vec3 b)
+{
+	return a + b - 1.0;
+}
+
 ////////// VIVID COLOR /////////
 float fVividColor(float a, float b)
 {

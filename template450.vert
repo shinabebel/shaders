@@ -1,4 +1,4 @@
-#version 450
+#version 450 compatibility
 
 uniform mat4 modelViewProjectionMatrix;
 uniform mat4 textureMatrix;

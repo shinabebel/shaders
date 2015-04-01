@@ -1,4 +1,4 @@
-#version 450
+#version 450 compatibility
 
 uniform sampler2D tex0;
 
