@@ -7,7 +7,7 @@ float gaussian(float x, float y, float sigma)
 
 vec3 filterGaussianBlur(int sub)
 {
-	int size = int(clamp(sub, 1, 15));
+	int size = int(max(sub, 1));
 	float sum = 0.0;
 	vec3 sampler = vec3(0);
 	for (int x=-size; x<size; x++) {
@@ -23,7 +23,7 @@ vec3 filterGaussianBlur(int sub)
 
 vec3 filterGaussianUnsharp(int sub)
 {
-	int size = int(clamp(sub, 1, 15));
+	int size = int(max(sub, 1));
 	float sum = 0.0;
 	vec3 sampler = vec3(0);
 	for (int x=-size; x<size; x++) {
@@ -39,7 +39,7 @@ vec3 filterGaussianUnsharp(int sub)
 
 vec3 filterBoxBlur(int sub)
 {
-	int size = int(clamp(sub, 1, 15));
+	int size = int(max(sub, 1));
 	vec3 sampler = vec3(0);
 	for (int x=-size; x<size; x++) {
 		for (int y=-size; y<size; y++) {
@@ -58,7 +58,7 @@ vec3 filterSepia()
 
 vec3 filterEdge(int sub)
 {
-	int size = int(clamp(sub, 1, 15));
+	int size = int(max(sub, 1));
 	vec3 sampler = vec3(0);
 	for (int x=-size; x<size; x++) {
 		for (int y=-size; y<size; y++) {
@@ -71,7 +71,7 @@ vec3 filterEdge(int sub)
 
 vec3 filterDilate(int sub)
 {
-	int size = int(clamp(sub, 1, 15));
+	int size = int(max(sub, 1));
 	vec3 sampler = vec3(0);
 	for (int x=-size; x<size; x++) {
 		for (int y=-size; y<size; y++) {
@@ -83,7 +83,7 @@ vec3 filterDilate(int sub)
 
 vec3 filterErode(int sub)
 {
-	int size = int(clamp(sub, 1, 15));
+	int size = int(max(sub, 1));
 	vec3 sampler = vec3(1);
 	for (int x=-size; x<size; x++) {
 		for (int y=-size; y<size; y++) {
