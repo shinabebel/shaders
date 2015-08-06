@@ -10,8 +10,8 @@ vec3 filterGaussianBlur(int sub)
 	int size = int(max(sub, 1));
 	float sum = 0.0;
 	vec3 sampler = vec3(0);
-	for (int x=-size; x<size; x++) {
-		for (int y=-size; y<size; y++) {
+	for (int x=-size; x<=size; x++) {
+		for (int y=-size; y<=size; y++) {
 			float scale = gaussian(x, y, 5.0);
 			sampler += scale * texture(tex0, vTexCoord + vec2(x, y)).rgb;
 			sum += scale;
@@ -26,8 +26,8 @@ vec3 filterGaussianUnsharp(int sub)
 	int size = int(max(sub, 1));
 	float sum = 0.0;
 	vec3 sampler = vec3(0);
-	for (int x=-size; x<size; x++) {
-		for (int y=-size; y<size; y++) {
+	for (int x=-size; x<=size; x++) {
+		for (int y=-size; y<=size; y++) {
 			float scale = gaussian(x, y, 5.0);
 			sampler -= scale * texture(tex0, vTexCoord + vec2(x, y)).rgb;
 			sum += scale;
@@ -41,8 +41,8 @@ vec3 filterBoxBlur(int sub)
 {
 	int size = int(max(sub, 1));
 	vec3 sampler = vec3(0);
-	for (int x=-size; x<size; x++) {
-		for (int y=-size; y<size; y++) {
+	for (int x=-size; x<=size; x++) {
+		for (int y=-size; y<=size; y++) {
 			sampler += texture(tex0, vTexCoord + vec2(x, y)).rgb;
 		}
 	}
@@ -60,8 +60,8 @@ vec3 filterEdge(int sub)
 {
 	int size = int(max(sub, 1));
 	vec3 sampler = vec3(0);
-	for (int x=-size; x<size; x++) {
-		for (int y=-size; y<size; y++) {
+	for (int x=-size; x<=size; x++) {
+		for (int y=-size; y<=size; y++) {
 			sampler -= texture(tex0, vTexCoord + vec2(x, y)).rgb;
 		}
 	}
@@ -73,8 +73,8 @@ vec3 filterDilate(int sub)
 {
 	int size = int(max(sub, 1));
 	vec3 sampler = vec3(0);
-	for (int x=-size; x<size; x++) {
-		for (int y=-size; y<size; y++) {
+	for (int x=-size; x<=size; x++) {
+		for (int y=-size; y<=size; y++) {
 			sampler = max(texture(tex0, vTexCoord + vec2(x, y)).rgb, sampler);
 		}
 	}
@@ -85,8 +85,8 @@ vec3 filterErode(int sub)
 {
 	int size = int(max(sub, 1));
 	vec3 sampler = vec3(1);
-	for (int x=-size; x<size; x++) {
-		for (int y=-size; y<size; y++) {
+	for (int x=-size; x<=size; x++) {
+		for (int y=-size; y<=size; y++) {
 			sampler = max(texture(tex0, vTexCoord + vec2(x, y)).rgb, sampler);
 		}
 	}

@@ -7,7 +7,8 @@ vec3 blendMultiply(vec3 a, vec3 b)
 ////////// SCREEN /////////
 vec3 blendScreen(vec3 a, vec3 b)
 {
-	return 1.0 - (1.0 - a) * (1.0 - b);
+	//return 1.0 - (1.0 - a) * (1.0 - b);
+	return a + (1.0 - a) * b;
 }
 
 ////////// OVERLAY /////////
